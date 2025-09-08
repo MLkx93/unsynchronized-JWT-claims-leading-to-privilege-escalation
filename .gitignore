@@ -1,0 +1,30 @@
+# .gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+lib/
+include/
+bin/
+pip-log.txt
+pip-delete-this-directory.txt
+.venv
+
+# Flask specific
+instance/
+
+# Database file
+*.db
+*.sqlite
+*.sqlite3
+database.db # Explicitly ignore the lab's database file
+
+# Docker
+.dockerignore
+!Dockerfile
+!docker-compose.yml
+.env

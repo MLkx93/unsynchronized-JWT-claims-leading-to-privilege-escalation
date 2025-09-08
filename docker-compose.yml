@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    # Mount the 'src' directory for live reloading during development.
+    # For a final "ready-to-use" lab, you might remove this to keep the image self-contained
+    # and rely solely on the files copied during the build.
+    volumes:
+      - ./app/src:/app
+      # Mount a specific database file to persist data across container restarts
+      # This ensures your initial users are always there.
+      - ./database.db:/app/database.db
+    environment:
+      # FLASK_ENV set to development enables debug mode (e.g., reloader)
+      FLASK_ENV: development
+      # You could pass SECRET_KEY here if you want to keep it out of config.py
+      # - SECRET_KEY=your_super_secret_jwt_key_that_should_be_strong_in_prod
+    networks:
+      - vulnerable_network
+
+networks:
+  vulnerable_network:
+    driver: bridge
