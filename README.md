@@ -1,4 +1,4 @@
-# Vulnerable JWT Privilege Escalation Lab
+# Vulnerable JWT Privilege Escalation Lab (in progress)
 
 This lab demonstrates a critical privilege escalation vulnerability in a web application that arises from unsynchronized JWT claims. When a user's privileges are updated, the existing JWT is not properly invalidated or re-issued, allowing an attacker to exploit a timing window to elevate their role to Admin.
 
